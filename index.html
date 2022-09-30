@@ -7,39 +7,39 @@
         </title>
     </head>
     <body>
-        <section class="todos_page">
+        <main class="todos_page">
             <header class="title_on_page">
                 <h1>
                     todos
                 </h1>
             </header>
-            <main class="main_part_of_todos_app">
+            <article class="main_part_of_todos_app">
                 <header class="todos_lst_header">
                     <button class="btn_with_image"></button>
                     <input type="text" placeholder="What needs to be done?" class="header_input">
                 </header>
                 <section class="todos_lst_main_section">
                     <ul class="marked_list">
-                        <div class="item_in_list">
+                        <li class="item_in_list">
                             <input type="checkbox">
                             <input type="text" value="HTML" class="main_list_text">
                             <button class="delete_btn"></button>
-                        </div>
-                        <div class="item_in_list">
+                        </li>
+                        <li class="item_in_list">
                             <input type="checkbox" checked>
                             <input type="text" value="CSS" class="main_list_text">
                             <button class="delete_btn"></button>
-                        </div>
-                        <div class="item_in_list">
+                        </li>
+                        <li class="item_in_list">
                             <input type="checkbox">
                             <input type="text" value="JS" class="main_list_text">
                             <button class="delete_btn"></button>
-                        </div>
-                        <div class="item_in_list">
+                        </li>
+                        <li class="item_in_list">
                             <input type="checkbox">
                             <input type="text" value="JS tools" class="main_list_text">
                             <button class="delete_btn"></button>
-                        </div>
+                        </li>
                     </ul>
                 </section>
                 <footer class="todos_footer">
@@ -47,16 +47,16 @@
                         <span class="items_counter">3 items left</span> 
                     </div>
                     <div>
-                        <div class="switcher_of_amount_of_items">
-                            <input type="radio">
+                        <div class="switcher_of_amount_of_items" >
+                            <input type="radio" name="switcher" value="All">
                             <span>All</span>
                         </div>
                         <div class="switcher_of_amount_of_items">
-                            <input type="radio">
+                            <input type="radio" name="switcher" value="Active">
                             <span>Active</span>
                         </div>
                         <div class="switcher_of_amount_of_items">
-                            <input type="radio">
+                            <input type="radio" name="switcher" value="Completed">
                             <span>Completed</span>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                         </button>
                     </div>
                 </footer>
-            </main>
-        </section>
+            </article>
+        </main>
     </body>
 </html>
