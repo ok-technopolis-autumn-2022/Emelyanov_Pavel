@@ -7,13 +7,13 @@
         </title>
     </head>
     <body>
-        <div class="to_dos_page">
+        <section class="todos_page">
             <header class="title_of_page">
                 <h1>
                     todos
                 </h1>
             </header>
-            <section class="todos_section">
+            <main class="main_part_of_todos_app">
                 <header class="todos_lst_header">
                     <button class="btn_with_image"></button>
                     <input type="text" placeholder="What needs to be done" class="header_input">
@@ -23,18 +23,22 @@
                         <div class="item_in_list">
                             <input type="checkbox">
                             <input type="text" value="HTML" class="main_list_text">
+                            <button class="delete_btn"></button>
                         </div>
                         <div class="item_in_list">
                             <input type="checkbox" checked>
                             <input type="text" value="CSS" class="main_list_text">
+                            <button class="delete_btn"></button>
                         </div>
                         <div class="item_in_list">
                             <input type="checkbox">
                             <input type="text" value="JS" class="main_list_text">
+                            <button class="delete_btn"></button>
                         </div>
                         <div class="item_in_list">
                             <input type="checkbox">
                             <input type="text" value="JS tools" class="main_list_text">
+                            <button class="delete_btn"></button>
                         </div>
                     </ul>
                 </section>
@@ -43,9 +47,18 @@
                         <span class="items_counter">3 items left</span> 
                     </div>
                     <div>
-                        <input class="btn_all" type="button" value="All">
-                        <input class="btn_active" type="button" value="Active">
-                        <input class="btn_completed" type="button" value="Completed">
+                        <div class="switcher_of_amount_of_items">
+                            <input type="radio">
+                            <span>All</span>
+                        </div>
+                        <div class="switcher_of_amount_of_items">
+                            <input type="radio">
+                            <span>Active</span>
+                        </div>
+                        <div class="switcher_of_amount_of_items">
+                            <input type="radio">
+                            <span>Completed</span>
+                        </div>
                     </div>
                     <div>
                         <button class="btn_clear">
@@ -53,7 +66,7 @@
                         </button>
                     </div>
                 </footer>
-            </section>
-        </div>
+            </main>
+        </section>
     </body>
 </html>
