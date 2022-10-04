@@ -15,30 +15,62 @@
             </header>
             <article class="main_part_of_todos_app">
                 <header class="todos_lst_header">
-                    <button class="btn_with_image"></button>
+                    <button class="btn_with_image">Select all</button>
                     <input type="text" placeholder="What needs to be done?" class="header_input">
                 </header>
                 <section class="todos_lst_main_section">
                     <ul class="marked_list">
                         <li class="item_in_list">
-                            <input type="checkbox">
-                            <input type="text" value="HTML" class="main_list_text">
-                            <button class="delete_btn"></button>
+                            <div>
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="checkbox-replica"></span>
+                                </label>
+                                <input type="text" value="HTML" class="main_list_text" aria-label="Selected task is HTML">
+                                <button class="delete_btn">delete task</button>
+                            </div>
+                            <div class="task-item__edit" hidden="hidden">
+                                <input type="text" class="task-item__input" value="HTML" aria-label="Edit task: HTML"/>
+                            </div>
                         </li>
                         <li class="item_in_list">
-                            <input type="checkbox" checked>
-                            <input type="text" value="CSS" class="main_list_text">
-                            <button class="delete_btn"></button>
+                            <div>
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="checkbox-replica"></span>
+                                </label>
+                                <input type="text" value="CSS" class="main_list_text" aria-label="Selected task is CSS">
+                                <button class="delete_btn">delete task</button>
+                            </div>
+                            <div class="task-item__edit" hidden="hidden">
+                                <input type="text" class="task-item__input" value="CSS" aria-label="Edit task: CSS"/>
+                            </div>
                         </li>
                         <li class="item_in_list">
-                            <input type="checkbox">
-                            <input type="text" value="JS" class="main_list_text">
-                            <button class="delete_btn"></button>
+                            <div>
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="checkbox-replica"></span>
+                                </label>
+                                <input type="text" value="JS" class="main_list_text" aria-label="Selected task is JS">
+                                <button class="delete_btn">delete task</button>
+                            </div>
+                            <div class="task-item__edit" hidden="hidden">
+                                <input type="text" class="task-item__input" value="JS" aria-label="Edit task: JS"/>
+                            </div>
                         </li>
                         <li class="item_in_list">
-                            <input type="checkbox">
-                            <input type="text" value="JS tools" class="main_list_text">
-                            <button class="delete_btn"></button>
+                            <div>
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="checkbox-replica"></span>
+                                </label>
+                                <input type="text" value="JS tools" class="main_list_text" aria-label="Selected task is JS tools">
+                                <button class="delete_btn">delete task</button>
+                            </div>
+                            <div class="task-item__edit" hidden="hidden">
+                                <input type="text" class="task-item__input" value="JS tools" aria-label="Edit task: JS tools"/>
+                            </div>
                         </li>
                     </ul>
                 </section>
