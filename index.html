@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="utf-8">
+        <title>
+            todos
+        </title>
+    </head>
+    <body>
+        <main class="todos_page" role="main" aria-label="Page with tasks to do">
+            <header class="title_on_page" role="heading" aria-label="Todos">
+                <h1>
+                    todos
+                </h1>
+            </header>
+            <article class="main_part_of_todos_app" role="article" aria-label="List with tasks">
+                <header class="todos_lst_header">
+                    <button class="btn_with_image" role="button" aria-label="Select all tasks">Select all</button>
+                    <input type="text" placeholder="What needs to be done?" class="header_input">
+                </header>
+                <section class="todos_lst_main_section">
+                    <ul class="marked_list">
+                        <li class="item_in_list">
+                            <div>
+                                <label>
+                                    <input type="checkbox" role="checkbox" aria-label="Item in your tasks">
+                                    <span class="checkbox-replica"></span>
+                                </label>
+                                <input type="text" value="HTML" class="main_list_text" aria-label="Selected task is HTML">
+                                <button class="delete_btn" role="button" aria-label="Delete this task">delete task</button>
+                            </div>
+                            <div class="task-item__edit" hidden="hidden">
+                                <input type="text" class="task-item__input" value="HTML" aria-label="Edit task: HTML"/>
+                            </div>
+                        </li>
+                        <li class="item_in_list">
+                            <div>
+                                <label>
+                                    <input type="checkbox" role="checkbox" aria-label="Item in your tasks">
+                                    <span class="checkbox-replica"></span>
+                                </label>
+                                <input type="text" value="CSS" class="main_list_text" aria-label="Selected task is CSS">
+                                <button class="delete_btn" role="button" aria-label="Delete this task">delete task</button>
+                            </div>
+                            <div class="task-item__edit" hidden="hidden">
+                                <input type="text" class="task-item__input" value="CSS" aria-label="Edit task: CSS"/>
+                            </div>
+                        </li>
+                        <li class="item_in_list">
+                            <div>
+                                <label>
+                                    <input type="checkbox" role="checkbox" aria-label="Item in your tasks">
+                                    <span class="checkbox-replica"></span>
+                                </label>
+                                <input type="text" value="JS" class="main_list_text" aria-label="Selected task is JS">
+                                <button class="delete_btn" role="button" aria-label="Delete this task">delete task</button>
+                            </div>
+                            <div class="task-item__edit" hidden="hidden">
+                                <input type="text" class="task-item__input" value="JS" aria-label="Edit task: JS"/>
+                            </div>
+                        </li>
+                        <li class="item_in_list">
+                            <div>
+                                <label>
+                                    <input type="checkbox" role="checkbox" aria-label="Item in your tasks">
+                                    <span class="checkbox-replica"></span>
+                                </label>
+                                <input type="text" value="JS tools" class="main_list_text" aria-label="Selected task is JS tools">
+                                <button class="delete_btn" role="button" aria-label="Delete this task">delete task</button>
+                            </div>
+                            <div class="task-item__edit" hidden="hidden">
+                                <input type="text" class="task-item__input" value="JS tools" aria-label="Edit task: JS tools"/>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+                <footer class="todos_footer">
+                    <div>
+                        <span class="items_counter" role="note" aria-label="Task count counter">3 items left</span> 
+                    </div>
+                    <div>
+                        <div class="switcher_of_amount_of_items" role="radiogroup" aria-label="Displayed tasks">
+                            <label>
+                                <input type="radio" name="switcher" value="All" role="radio" aria-label="All tasks are displayed">
+                                <span>All</span>
+                            </label>
+                        </div>
+                        <div class="switcher_of_amount_of_items">
+                            <label>
+                                <input type="radio" name="switcher" value="Active" role="radio" aria-label="Active tasks are displayed">
+                                <span>Active</span>
+                            </label>
+                        </div>
+                        <div class="switcher_of_amount_of_items">
+                            <label>
+                                <input type="radio" name="switcher" value="Completed" role="radio" aria-label="Completed tasks are displayed">
+                                <span>Completed</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn_clear" role="button" aria-label="Clear all tasks">
+                            Clear completed
+                        </button>
+                    </div>
+                </footer>
+            </article>
+        </main>
+    </body>
+</html>
