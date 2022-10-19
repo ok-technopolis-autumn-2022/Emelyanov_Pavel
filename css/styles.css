@@ -42,8 +42,12 @@ h1 {
   opacity: 0;
 }
 
-.item-in-list__checkbox:focus + .item-in-list__checkbox-replica {
+.item-in-list__checkbox:focus:not(:checked) + .item-in-list__checkbox-replica {
   border: 2px solid #85d1c3;
+}
+
+.item-in-list__checkbox:focus:checked + .item-in-list__checkbox-replica {
+  border: 2px solid #ff8c00;
 }
 
 .item-in-list__checkbox:checked + .item-in-list__checkbox-replica {
