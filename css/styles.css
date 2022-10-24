@@ -31,6 +31,79 @@ h1 {
   max-height: 800px;
 }
 
+.todos-page__article {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+  min-height: 200px;
+  max-height: 800px;
+  min-width: 300px;
+  height: 100%;
+  background-color: #ffffff;
+
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.todos-page__main-controls.main-controls {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  width: 100%;
+  top: 10px;
+  height: 25px;
+}
+
+.todos-page__select-all-button {
+  border: none;
+  background: none;
+  margin: 0 5px 0 5px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  cursor: pointer;
+}
+
+.main-controls__create-new {
+  width: 100%;
+}
+
+.todos-page__new-task-input {
+  border: none;
+  background: none;
+  width: 100%;
+  height: 100%;
+}
+
+.todos-page__tasks {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 40px;
+}
+
+.todos-page__tasks-list.tasks-list {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  justify-content: left;
+}
+
+.item-in-list__task-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  border: 1px solid #e6e6e6;
+  padding: 5px 0 5px 0;
+}
+
+.item-in-list__checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
 .item-in-list__checkbox-replica {
   display: inline-block;
   width: 20px;
@@ -38,12 +111,6 @@ h1 {
   border: 1px black solid;
   border-radius: 50%;
   margin: 0 5px 0 5px;
-}
-
-.item-in-list__checkbox {
-  position: absolute;
-  z-index: -1;
-  opacity: 0;
 }
 
 .item-in-list__checkbox:focus:not(:checked) + .item-in-list__checkbox-replica {
@@ -62,21 +129,6 @@ h1 {
   background-size: cover;
 }
 
-.footer__switcher-of-amount-of-items {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  font-size: 10px;
-}
-
-.footer__item-in-footer {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  height: 100%;
-}
-
 .item-in-list__main-list-text {
   color: black;
   border: 0px;
@@ -89,79 +141,10 @@ h1 {
   background-color: #fafafa;
 }
 
-.footer__items-counter {
-  display: flex;
-  justify-content: center;
-  font-size: 10px;
-  margin: 0 0 0 5px;
-}
-
-.footer__btn-clear {
-  color: #666666;
-  font-size: 10px;
-  border: none;
-  background: none;
-  cursor: pointer;
-  margin: 0 10px 0 0;
-  padding: 0;
-}
-
-.todos-page__article {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  max-width: 500px;
-  width: 100%;
-  min-height: 200px;
-  max-height: 800px;
-  min-width: 300px;
-  height: 100%;
-  background-color: #ffffff;
-
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.footer__radio-button {
+.item-in-list__edit {
   position: absolute;
-  display: flex;
   z-index: -1;
   opacity: 0;
-  padding: 0;
-  margin: 0;
-}
-
-.todos-page__tasks-list.tasks-list {
-  display: flex;
-  flex-direction: column;
-  list-style-type: none;
-  justify-content: left;
-}
-
-.todos-page__new-task-input {
-  border: none;
-  background: none;
-  width: 100%;
-  height: 100%;
-}
-
-.todos-page__main-controls.main-controls {
-  display: flex;
-  flex-direction: row;
-  position: absolute;
-  width: 100%;
-  top: 10px;
-}
-
-.todos-page__main-controls.main-controls {
-  height: 25px;
-}
-
-.todos-page__tasks {
-  position: absolute;
-  width: 100%;
-  left: 0;
-  right: 0;
-  top: 40px;
 }
 
 .todos-page__footer {
@@ -178,31 +161,39 @@ h1 {
   height: 20px;
 }
 
-.item-in-list__task-item {
+.footer__item-in-footer {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  border: 1px solid #e6e6e6;
-  padding: 5px 0 5px 0;
+  height: 100%;
+}
+
+.footer__items-counter {
+  display: flex;
+  justify-content: center;
+  font-size: 10px;
+  margin: 0 0 0 5px;
+}
+
+.footer__switcher-of-amount-of-items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  font-size: 10px;
 }
 
 .footer__switcher-of-amount-of-items:nth-child(2n) {
   margin: 0 10px 0 10px;
 }
 
-.footer__radio-button-text {
-  border-radius: 5%;
-  cursor: pointer;
-}
-
-.todos-page__select-all-button {
-  border: none;
-  background: none;
-  margin: 0 5px 0 5px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 75%;
-  cursor: pointer;
+.footer__radio-button {
+  position: absolute;
+  display: flex;
+  z-index: -1;
+  opacity: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .footer__radio-button:checked + .footer__radio-button-text {
@@ -210,16 +201,30 @@ h1 {
   margin: -2px;
 }
 
-.main-controls__create-new {
-  width: 100%;
-}
-
 .footer__radio-button:focus + .footer__radio-button-text {
   border: 2px solid #007bff;
 }
 
-.task-item__edit {
+.footer__radio-button-text {
+  border-radius: 5%;
+  cursor: pointer;
+}
+
+.footer__btn-clear {
+  color: #666666;
+  font-size: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin: 0 10px 0 0;
+  padding: 0;
+}
+
+.todos-page__article::after{
   position: absolute;
-  z-index: -1;
-  opacity: 0;
+  top: 10px;
+}
+.todos-page__article::before{
+  position: absolute;
+  top: 100%;
 }
