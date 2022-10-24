@@ -205,7 +205,7 @@ h1 {
   cursor: pointer;
 }
 
-.footer__radio-button:checked + span.footer__radio-button-text {
+.footer__radio-button:checked + .footer__radio-button-text {
   border: 1px solid #ebdfdf;
   margin: -1px;
 }
