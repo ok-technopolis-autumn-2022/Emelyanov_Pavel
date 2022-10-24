@@ -25,6 +25,10 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 562px;
+  width: 100%;
+  height: 100%;
+  max-height: 800px;
 }
 
 .item-in-list__checkbox-replica {
@@ -62,6 +66,7 @@ h1 {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  justify-content: space-between;
   font-size: 10px;
 }
 
@@ -75,7 +80,7 @@ h1 {
   color: black;
   border: 0px;
   background: none;
-  width: calc(100% - 30px);
+  width: 100%;
 }
 
 .item-in-list__main-list-text:hover {
@@ -104,17 +109,22 @@ h1 {
   display: flex;
   flex-direction: column;
   position: relative;
-  max-width: 40vw;
-  min-width: 30vw;
-  min-height: 40vh;
-  max-height: 60vh;
+  max-width: 500px;
+  width: 100%;
+  min-width: 300px;
+  min-height: 200px;
+  height: 100%;
   background-color: #ffffff;
 
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .footer__radio-button {
-  visibility: hidden;
+  position: absolute;
+  display: flex;
+
+  z-index: -1;
+  opacity: 0;
   padding: 0;
   margin: 0;
 }
@@ -129,6 +139,7 @@ h1 {
 .todos-page__new-task-input {
   border: none;
   background: none;
+  width: 100%;
 }
 
 .todos-page__main-controls.main-controls {
@@ -151,7 +162,7 @@ h1 {
   top: 40px;
 }
 
-.todos-page__footer.footer {
+.todos-page__footer {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -172,13 +183,12 @@ h1 {
   padding: 5px 0 5px 0;
 }
 
-.footer__item-in-footer:nth-child(3n) {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+.footer__switcher-of-amount-of-items:nth-child(2n) {
+  margin: 0 10px 0 10px;
 }
 
-span.footer__radio-button-text {
+.footer__radio-button-text {
+  border-radius: 5%;
   cursor: pointer;
 }
 
@@ -197,4 +207,9 @@ span.footer__radio-button-text {
 
 .footer__radio-button:checked + span.footer__radio-button-text {
   border: 1px solid #ebdfdf;
+  margin: -1px;
+}
+
+.main-controls__create-new {
+  width: 100%;
 }
