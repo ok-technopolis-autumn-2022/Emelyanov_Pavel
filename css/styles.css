@@ -122,7 +122,6 @@ h1 {
 .footer__radio-button {
   position: absolute;
   display: flex;
-
   z-index: -1;
   opacity: 0;
   padding: 0;
@@ -212,4 +211,12 @@ h1 {
 
 .main-controls__create-new {
   width: 100%;
+}
+
+.footer__radio-button:focus:not(:checked) + .footer__radio-button-text {
+  border: 2px solid #99ff00;
+}
+
+.footer__radio-button:focus:checked + .footer__radio-button-text {
+  border: 2px solid #ff8c00;
 }
