@@ -78,7 +78,6 @@ h1 {
   flex-direction: row;
   position: relative;
   width: 100%;
-  top: 10px;
 }
 
 .todos-page__select-all-button {
