@@ -19,7 +19,7 @@
                 <header class="todos-page__main-controls main-controls">
                     <div class="main-controls__select-all">
                         <button class="todos-page__select-all-button" role="button" aria-label="Select all tasks" alt="Select All">
-                            <img src="images\Frame1.svg" alt="">
+                            <img src="images\SelectAll.svg" alt="">
                         </button>
                     </div>
                     <div class="main-controls__create-new">
@@ -31,54 +31,54 @@
                     <ul class="todos-page__tasks-list tasks-list">
                         <li class="tasks-list__item-in-list item-in-list">
                             <div class="item-in-list__task-item">
-                                <label>
+                                <label class="item-in-list__custom-checkbox">
                                     <input class="item-in-list__checkbox" type="checkbox" role="checkbox" aria-label="Item in your tasks">
                                     <span class="item-in-list__checkbox-replica"></span>
                                 </label>
                                 <span class="item-in-list__main-list-text">HTML</span>
+                                <button class="item-in-list__delete_btn" role="button" aria-label="Delete this task">delete task</button>
                             </div>
                             <div class="item-in-list__edit">
                                 <input class="task-item__input" type="text" value="HTML" aria-label="Edit task: HTML"/>
-                                <button class="item-in-list__delete_btn" role="button" aria-label="Delete this task">delete task</button>
                             </div>
                         </li>
                         <li class="tasks-list__item-in-list item-in-list">
                             <div class="item-in-list__task-item">
-                                <label>
+                                <label class="item-in-list__custom-checkbox">
                                     <input class="item-in-list__checkbox" type="checkbox" role="checkbox" aria-label="Item in your tasks">
                                     <span class="item-in-list__checkbox-replica"></span>
                                 </label>
                                 <span class="item-in-list__main-list-text">CSS</span>
+                                <button class="item-in-list__delete_btn" role="button" aria-label="Delete this task">delete task</button>
                             </div>
                             <div class="item-in-list__edit">
                                 <input type="text" class="task-item__input" value="CSS" aria-label="Edit task: CSS"/>
-                                <button class="item-in-list__delete_btn" role="button" aria-label="Delete this task">delete task</button>
                             </div>
                         </li>
                         <li class="tasks-list__item-in-list item-in-list">
                             <div class="item-in-list__task-item">
-                                <label>
+                                <label class="item-in-list__custom-checkbox">
                                     <input class="item-in-list__checkbox" type="checkbox" role="checkbox" aria-label="Item in your tasks">
                                     <span class="item-in-list__checkbox-replica"></span>
                                 </label>
                                 <span class="item-in-list__main-list-text">JS</span>
+                                <button class="item-in-list__delete_btn" role="button" aria-label="Delete this task">delete task</button>
                             </div>
                             <div class="item-in-list__edit">
                                 <input type="text" class="task-item__input" value="JS" aria-label="Edit task: JS"/>
-                                <button class="item-in-list__delete_btn" role="button" aria-label="Delete this task">delete task</button>
                             </div>
                         </li>
                         <li class="tasks-list__item-in-list item-in-list">
                             <div class="item-in-list__task-item">
-                                <label>
+                                <label class="item-in-list__custom-checkbox">
                                     <input class="item-in-list__checkbox" type="checkbox" role="checkbox" aria-label="Item in your tasks">
                                     <span class="item-in-list__checkbox-replica"></span>
                                 </label>
                                 <span class="item-in-list__main-list-text">JS tools</span>
+                                <button class="item-in-list__delete_btn" role="button" aria-label="Delete this task">delete task</button>
                             </div>
                             <div class="item-in-list__edit" hidden>
                                 <input type="text" class="task-item__input" value="JS tools" aria-label="Edit task: JS tools"/>
-                                <button class="item-in-list__delete_btn" role="button" aria-label="Delete this task">delete task</button>
                             </div>
                         </li>
                     </ul>
@@ -90,19 +90,19 @@
                     </div>
                     <div class="footer__item-in-footer">
                         <div class="footer__switcher-of-amount-of-items" role="radiogroup" aria-label="Displayed tasks">
-                            <label>
+                            <label class="footer__amount-label">
                                 <input class="footer__radio-button" type="radio" name="switcher" value="All" role="radio" aria-label="All tasks are displayed" checked>
                                 <span class="footer__radio-button-text">All</span>
                             </label>
                         </div>
                         <div class="footer__switcher-of-amount-of-items">
-                            <label>
+                            <label class="footer__amount-label">
                                 <input class="footer__radio-button" type="radio" name="switcher" value="Active" role="radio" aria-label="Active tasks are displayed">
                                 <span class="footer__radio-button-text">Active</span>
                             </label>
                         </div>
                         <div class="footer__switcher-of-amount-of-items">
-                            <label>
+                            <label class="footer__amount-label">
                                 <input class="footer__radio-button" type="radio" name="switcher" value="Completed" role="radio" aria-label="Completed tasks are displayed">
                                 <span class="footer__radio-button-text">Completed</span>
                             </label>
