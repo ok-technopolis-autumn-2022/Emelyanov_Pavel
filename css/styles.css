@@ -235,6 +235,7 @@ h1 {
   flex-direction: row;
   flex-wrap: nowrap;
   height: 100%;
+}
 
 .footer__amount-size {
   display: flex;
