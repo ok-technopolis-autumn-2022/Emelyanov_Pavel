@@ -68,7 +68,7 @@ h1 {
   border-bottom: 1px solid #e6e6e6;
 }
 
-.todos-page__select-all-button {
+.main-controls__select-all-button {
   border: none;
   background: none;
   margin: 0 5px 0 0px;
@@ -82,13 +82,14 @@ h1 {
   flex: auto; 
 }
 
-.todos-page__new-task-input {
+.main-controls__new-task-input {
   border: none;
   background: none;
   font-family: "Roboto", sans-serif;
   width: 100%;
   font-size: 24px;
   line-height: 64px;
+  color: #CCCCCC;
 }
 
 .tasks-list {
