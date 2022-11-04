@@ -6,8 +6,6 @@
 }
 
 body {
-  display: flex;
-  justify-content: center;
   color: #666666;
   background-color: #f5f5f5;
   font-family: "Roboto", sans-serif;
@@ -26,8 +24,6 @@ h1 {
 
 .todos-page {
   margin: 0 auto 20px;
-  display: flex;
-  flex-direction: column;
   max-width: 562px;
   min-width: 400px;
   width: 90%;
@@ -39,15 +35,8 @@ h1 {
 }
 
 .todos-page__article {
-  display: flex;
-  flex-direction: column;
   position: relative;
-  width: 100%;
-  min-height: 400px;
-  min-width: 300px;
-  height: 100%;
   background-color: #fff;
-
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -73,17 +62,16 @@ h1 {
   box-shadow: 0 2px 4px #0003;
 }
 
-.todos-page__main-controls {
+.main-controls {
   display: flex;
-  flex-direction: row;
-  position: relative;
-  width: 100%;
+  align-items: center;
+  border-bottom: 1px solid #e6e6e6;
 }
 
 .todos-page__select-all-button {
   border: none;
   background: none;
-  margin: 0 5px 0 5px;
+  margin: 0 5px 0 0px;
   background-repeat: no-repeat;
   background-position: center center;
   cursor: pointer;
@@ -91,19 +79,20 @@ h1 {
 }
 
 .main-controls__create-new {
-  flex: auto;
+  flex: auto; 
 }
 
 .todos-page__new-task-input {
   border: none;
   background: none;
+  font-family: "Roboto", sans-serif;
   width: 100%;
   font-size: 24px;
   line-height: 64px;
 }
 
 .tasks-list {
-  min-height: 296px;
+  min-height: 200px;
 }
 
 .tasks-list:empty {
@@ -120,17 +109,10 @@ h1 {
 }
 
 .todos-page__tasks {
-  position: absolute;
   width: 100%;
   left: 0;
   right: 0;
   top: 64px;
-}
-
-.todos-page__tasks-list.tasks-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: left;
 }
 
 .item-in-list {
@@ -139,7 +121,7 @@ h1 {
   font-size: 24px;
   position: relative;
   overflow: hidden;
-  border: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
 }
 
 .item-in-list:hover {
@@ -164,7 +146,7 @@ h1 {
   cursor: pointer;
   border: 1px solid #CCCCCC;
   border-radius: 50%;
-  margin: 0 5px 0 5px;
+  margin: 0 5px 0 0;
 }
 
 .item-in-list__checkbox:focus:not(:checked) + .item-in-list__checkbox-replica {
@@ -180,6 +162,11 @@ h1 {
   background-image: url("../images/Selected.svg");
   background-repeat: no-repeat;
   background-position: center center;
+}
+
+.item-in-list__custom-checkbox{
+  padding: 10px;
+  margin: -10px 5px -10px 3px;
 }
 
 .item-in-list__main-list-text {
@@ -207,7 +194,7 @@ h1 {
 }
 
 .item-in-list__delete_btn:focus {
-  border: 2px solid #007bff;
+  border: 1px solid #007bff;
   margin-top: 0px;
 }
 
@@ -215,19 +202,12 @@ h1 {
   display: none;
 }
 
-.todos-page__footer {
+.footer {
   box-sizing: border-box;
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: baseline;
   justify-content: space-between;
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  border: 1px solid #e6e6e6;
-  text-align: center;
   height: 43px;
+  padding: 10px;
 }
 
 .footer__item-in-footer {
@@ -241,8 +221,7 @@ h1 {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  height: 100%;
-  width: 160px;
+  width: 220px;
   justify-content: space-between;
 }
 
@@ -250,16 +229,15 @@ h1 {
   display: flex;
   justify-content: center;
   font-size: 14px;
-  margin: 0 0 0 10px;
   font-family: "Roboto", sans-serif;
   color: #888888;
 }
 
 .footer__switcher-of-amount-of-items {
-  display: flex;
+  display: inline-block;
   flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
+  margin: -5px 0;
+  padding: 5px;
   font-size: 14px;
 }
 
@@ -273,21 +251,23 @@ h1 {
 }
 
 .footer__radio-button:checked + .footer__radio-button-text {
-  border: 2px solid #ebdfdf;
-  margin: -2px;
+  border: 1px solid #ebdfdf;
+  margin: -6px -1px;
 }
 
 .footer__radio-button:focus + .footer__radio-button-text {
-  border: 2px solid #007bff;
+  border: 1px solid #007bff;
+  margin: -6px -1px;
 }
 
 .footer__radio-button-text {
   border-radius: 5%;
   cursor: pointer;
-  padding: 3px;
   font-family: "Roboto", sans-serif;
   display: inline-block;
   color: #888888;
+  padding: 5px;
+  margin: -5px 0;
 }
 
 .footer__btn-clear {
@@ -298,5 +278,6 @@ h1 {
   cursor: pointer;
   font-family: "Roboto", sans-serif;
   font-weight: 100;
-  margin: 0 10px 0 0;
+  margin: -5px 0 0 0;
+  padding: 5px;
 }
