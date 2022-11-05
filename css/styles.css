@@ -35,9 +35,9 @@ h1 {
 }
 
 .todos-page__article {
-  position: relative;
   background-color: #fff;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 
 .todos-page__article:after {
@@ -48,7 +48,7 @@ h1 {
   bottom: -10px;
   left: 4px;
   right: 4px;
-  box-shadow: 0 2px 4px #0003;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .todos-page__article:before {
@@ -59,7 +59,7 @@ h1 {
   bottom: -5px;
   left: 2px;
   right: 2px;
-  box-shadow: 0 2px 4px #0003;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .main-controls {
@@ -96,30 +96,10 @@ h1 {
   min-height: 200px;
 }
 
-.tasks-list:empty {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-
-.tasks-list:empty:before {
-  bottom: 40px;
-  position: absolute;
-  content: "Empty todos list";
-  font-size: 24px;
-}
-
-.todos-page__tasks {
-  width: 100%;
-  left: 0;
-  right: 0;
-  top: 64px;
-}
-
 .item-in-list {
   color: #CCCCCC;
   padding: 12px 12px 12px 0;
-  font-size: 24px;
+  font-size: 24px;  
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid #e6e6e6;
@@ -174,7 +154,6 @@ h1 {
   text-overflow: ellipsis;
   flex: auto;
   overflow: hidden;
-  flex-grow: 1;
   font-size: 24px;
   font-weight: 300;
   line-height: 21px;
@@ -187,16 +166,15 @@ h1 {
   cursor: pointer;
   background-position: 50%;
   background-repeat: no-repeat;
-  flex-shrink: 0;
-  margin-left: 5px;
+  margin: -99999px 0 0 5px;
+  padding: 10px;
   border: none;
   background: none;
-  margin-top: -99999px;
 }
 
 .item-in-list__delete_btn:focus {
-  border: 1px solid #007bff;
-  margin-top: 0px;
+  border: 1px solid #000;
+  margin: -2px 1px 0 5px;
 }
 
 .item-in-list__edit {
@@ -222,13 +200,12 @@ h1 {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  width: 220px;
+  width: 200px;
   justify-content: space-between;
 }
 
 .footer__items-counter {
   display: flex;
-  justify-content: center;
   font-size: 14px;
   font-family: "Roboto", sans-serif;
   color: #888888;
