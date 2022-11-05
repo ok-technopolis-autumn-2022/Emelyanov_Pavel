@@ -35,9 +35,9 @@ h1 {
 }
 
 .todos-page__article {
+  position: relative;
   background-color: #fff;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-  position: relative;
 }
 
 .todos-page__article:after {
@@ -170,6 +170,11 @@ h1 {
   padding: 10px;
   border: none;
   background: none;
+}
+
+.tasks-list__item-in-list:hover .item-in-list__delete_btn {
+  border: 1px solid #000;
+  margin: -2px 1px 0 5px;
 }
 
 .item-in-list__delete_btn:focus {
