@@ -11,8 +11,8 @@ const amountOfTasksRadioButtons = document.querySelectorAll('.footer__radio-butt
 
 function hideIfBadFilter() {
     const currentFilterValue = document.querySelector('input[name="switcher"]:checked').value;
-    const itemToRemove = document.querySelector(`li[id='${this.id}']`);
     if ((this.checked && currentFilterValue === "Active") || (!this.checked && currentFilterValue === "Completed")) {
+        const itemToRemove = document.querySelector(`li[id='${this.id}']`);
         hide(itemToRemove);
     }
 }
