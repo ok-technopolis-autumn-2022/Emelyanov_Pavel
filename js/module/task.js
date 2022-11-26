@@ -1,8 +1,6 @@
-const MAX_ID_VALUE = 1000000000000;
-
 export function createTask(desc) {
     return {
-        id: getRandomInt(MAX_ID_VALUE),
+        id: Date.now(),
         desc: desc
     }
 }
