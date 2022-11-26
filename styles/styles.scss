@@ -70,11 +70,15 @@ h1 {
 }
 
 .main-controls__select-all-button {
-  border: none;
-  background: none;
-  margin: 0 5px 0 0;
-  background-repeat: no-repeat;
+  background-image: url("../images/SelectAll.svg");
   background-position: center center;
+  background-color: $color-white;
+  background-repeat: no-repeat;
+  background-size: 28px 20px;
+  border: none;
+  height: 60px;
+  width: 68px;
+  margin: 0 5px 0 0;
   cursor: pointer;
   padding: $padding-4x;
 }
@@ -168,8 +172,11 @@ h1 {
   margin: -99999px 0 0 5px;
   padding: $padding-2x;
   border: none;
-  background: none;
-
+  background-image: url("../images/delete.svg");
+  background-position: center center;
+  background-color: $color-white;
+  background-repeat: no-repeat;
+  background-size: 20px;
   &:focus {
     border: $type-of-border-line #000;
     margin: -2px 1px 0 5px;
@@ -179,6 +186,7 @@ h1 {
 .tasks-list__item-in-list:hover .item-in-list__delete_btn {
   border: $type-of-border-line #000;
   margin: -2px 1px 0 5px;
+  background-color: $default-background-color;
 }
 
 .item-in-list__edit {
