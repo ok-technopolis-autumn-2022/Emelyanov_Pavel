@@ -9,9 +9,11 @@ const allDeleteButtons = document.querySelectorAll('.item-in-list__delete_btn');
 let itemsInUl = document.querySelectorAll('.tasks-list__item-in-list');
 const amountOfTasksRadioButtons = document.querySelectorAll('.footer__radio-button');
 
+const STATE = {ALL: 'All', ACTIVE: 'Active', COMPLETED: 'Completed' };
+
 function hideIfBadFilter() {
     const currentFilterValue = document.querySelector('input[name="switcher"]:checked').value;
-    if ((this.checked && currentFilterValue === "Active") || (!this.checked && currentFilterValue === "Completed")) {
+    if ((this.checked && currentFilterValue === STATE.ACTIVE) || (!this.checked && currentFilterValue === STATE.COMPLETED)) {
         const itemToRemove = document.querySelector(`li[id='${this.id}']`);
         hide(itemToRemove);
     }
@@ -22,7 +24,7 @@ function addTask(e) {
     const task = createTask(this.description.value);
     const currentFilterOfTasks = document.querySelector('input[name="switcher"]:checked').value;
     const newLi = createLi(task);
-    if (currentFilterOfTasks === "Completed") {
+    if (currentFilterOfTasks === STATE.COMPLETED) {
         hide(newLi);
     }
     ul.appendChild(newLi);
@@ -43,7 +45,7 @@ const selectAllTask = () => {
         }   
     }
     const currentFilterValue = document.querySelector('input[name="switcher"]:checked').value;
-    const displayProperty = ((shouldCheckboxesBeChecked && currentFilterValue === "Active") || (!shouldCheckboxesBeChecked && currentFilterValue === "Completed")) ? "none" : "";
+    const displayProperty = ((shouldCheckboxesBeChecked && currentFilterValue === STATE.ACTIVE) || (!shouldCheckboxesBeChecked && currentFilterValue === STATE.COMPLETED)) ? "none" : "";
     for(let i = 0; i < itemsInUl.length; i++) {
         if (isShown(itemsInUl[i])) {
             const inputsWithMark = itemsInUl[i].querySelector('.item-in-list__checkbox');
@@ -65,36 +67,38 @@ allDeleteButtons.forEach((btn) => {
 })
 
 function showTasks(filterButton) {
-    if (filterButton.value === "Completed") {
-        const showCompleted = () => itemsInUl.forEach(li => {
-            const inputOfCurrentLi = li.querySelector('.item-in-list__checkbox');
-            if (!inputOfCurrentLi.checked) {
-                hide(li);
-            }
-            else {
+    switch(filterButton.value) {
+        case STATE.COMPLETED:
+            const showCompleted = () => itemsInUl.forEach(li => {
+                const inputOfCurrentLi = li.querySelector('.item-in-list__checkbox');
+                if (!inputOfCurrentLi.checked) {
+                    hide(li);
+                }
+                else {
+                    show(li);
+                }
+            });
+            filterButton.addEventListener('click', showCompleted);
+            break;      
+        case STATE.ACTIVE:
+            const showActive = () => itemsInUl.forEach(li => {
+                const inputOfCurrentLi = li.querySelector('.item-in-list__checkbox');
+                if (inputOfCurrentLi.checked) {
+                    hide(li);
+                }
+                else {
+                    show(li);
+                }
+            });
+            filterButton.addEventListener('click', showActive);
+            break;      
+        default:
+            const showAll = () => itemsInUl.forEach(li => {
                 show(li);
-            }
-        });
-        filterButton.addEventListener('click', showCompleted);
-    }
-    else if (filterButton.value === "Active") {
-        const showActive = () => itemsInUl.forEach(li => {
-            const inputOfCurrentLi = li.querySelector('.item-in-list__checkbox');
-            if (inputOfCurrentLi.checked) {
-                hide(li);
-            }
-            else {
-                show(li);
-            }
-        });
-        filterButton.addEventListener('click', showActive);
-    }
-    else if (filterButton.value === "All") {
-        const showAll = () => itemsInUl.forEach(li => {
-            show(li);
-        });
-        filterButton.addEventListener('click', showAll);
-    }
+            });
+            filterButton.addEventListener('click', showAll);
+            break;
+      }
 }
 
 amountOfTasksRadioButtons.forEach((item) => {    
