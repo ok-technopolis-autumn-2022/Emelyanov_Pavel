@@ -8,5 +8,5 @@ export function show(element) {
 }
 
 export function isShown(element) {
-    return element.classList.contains('hide-task');
+    return !element.classList.contains('hide-task');
 }
