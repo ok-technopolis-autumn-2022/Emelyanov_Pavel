@@ -1,23 +1,29 @@
 import {createTask} from "./module/task.js"
 import {hide, show, isShown} from "./module/displayFunctions.js"
-import {createLi, tasks, groupOfFilters} from "./module/generateLi.js"
+import {createLi, tasks, groupOfFilters, getCheckedFilter, updateText} from "./module/generateLi.js"
 
 const createNewForm = document.querySelector('.main-controls__create-new');
 const ul = document.querySelector('.todos-page__tasks-list');
 const selectAllButton = document.querySelector('.main-controls__select-all-button');
 const footerBtnClear = document.querySelector('.footer__btn-clear');
 
-const STATE = {ALL: 'All', ACTIVE: 'Active', COMPLETED: 'Completed' };
+const STATE = {
+    ALL: 'All',
+    ACTIVE: 'Active',
+    COMPLETED: 'Completed'
+};
 
 function addTask(e) {
     e.preventDefault();
     const task = createTask(this.description.value);
-    const currentFilterOfTasks = document.querySelector('input[name="switcher"]:checked').value;
     tasks.push(task);
     ul.appendChild(createLi(task));
     this.reset();
-    groupOfFilters.querySelector('input[name="switcher"]:checked').click();
+    getCheckedFilter().click();
+    updateText();
 }
+
+createNewForm.addEventListener('submit', addTask);
 
 const selectAllTask = () => {
     var shouldCheckboxesBeChecked = false;
@@ -37,10 +43,10 @@ const selectAllTask = () => {
             inputsWithMark.checked = shouldCheckboxesBeChecked;
         }   
     });
-    groupOfFilters.querySelector('input[name="switcher"]:checked').click();
+    getCheckedFilter().click();
+    updateText();
 }
 
-createNewForm.addEventListener('submit', addTask);
 selectAllButton.addEventListener('click', selectAllTask);
 
 function showTasks(e) {
@@ -59,6 +65,7 @@ function showTasks(e) {
             hide(li);
         }
     });
+    updateText();
 }
 
 groupOfFilters.addEventListener('click', showTasks);
@@ -72,6 +79,7 @@ const deleteCompleted = () => {
             tasks.splice(i--, 1);
         }
     }
+    updateText();
 }
 
 footerBtnClear.addEventListener('click', deleteCompleted);

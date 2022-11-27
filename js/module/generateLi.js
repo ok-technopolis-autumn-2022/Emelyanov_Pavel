@@ -1,10 +1,28 @@
+import {changeItemsLeft, isShown} from "./displayFunctions.js"
+
 const ul = document.querySelector('.todos-page__tasks-list');
 export const groupOfFilters = document.querySelector('.footer__amount-size');
 export const tasks = [];
 
-ul.addEventListener('click', commonTasks);
+ul.addEventListener('click', commonTasksForUl);
 
-function commonTasks(e) {
+export function getCheckedFilter() {
+    return groupOfFilters.querySelector('input[name="switcher"]:checked')
+}
+
+export function updateText() {
+    let counter = 0;
+    tasks.forEach(task => {
+        const currentLi = ul.querySelector(`li[id="${task.id}"]`);
+        const currentCheckbox = currentLi.querySelector('.item-in-list__checkbox');
+        if (isShown(currentLi) && !currentCheckbox.checked) {
+            counter++;
+        }
+    });
+    changeItemsLeft(counter);
+}
+
+function commonTasksForUl(e) {
     const currentTarget = e.target;    
     if (currentTarget.className === 'item-in-list__delete_btn') {
         const li = currentTarget.closest('li');
@@ -15,12 +33,11 @@ function commonTasks(e) {
         const requiredIndex = tasks.findIndex(requiredIndexPredicate);
         tasks.splice(requiredIndex, 1);
         li.remove();
+    } else if (currentTarget.className === 'item-in-list__checkbox') {
+        getCheckedFilter().click();
     }
-    else if (currentTarget.className === 'item-in-list__checkbox') {
-        groupOfFilters.querySelector('input[name="switcher"]:checked').click();
-    }
-
-  }
+    updateText();
+}
 
 /**
  * @param {id: string | number, desc: string} task 
