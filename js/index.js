@@ -1,6 +1,6 @@
 import {createTask} from "./module/task.js"
 import {hide, show, isShown} from "./module/displayFunctions.js"
-import {createLi} from "./module/generateLi.js"
+import {createLi, tasks} from "./module/generateLi.js"
 
 const createNewForm = document.querySelector('.main-controls__create-new');
 const ul = document.querySelector('.todos-page__tasks-list');
@@ -27,6 +27,7 @@ function addTask(e) {
     if (currentFilterOfTasks === STATE.COMPLETED) {
         hide(newLi);
     }
+    tasks.push(task);
     ul.appendChild(newLi);
     this.reset();
     const newCheckBox = newLi.querySelector('.item-in-list__checkbox');

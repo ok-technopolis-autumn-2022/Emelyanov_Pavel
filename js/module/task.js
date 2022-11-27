@@ -4,7 +4,3 @@ export function createTask(desc) {
         desc: desc
     }
 }
-
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-}

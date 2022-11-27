@@ -1,7 +1,6 @@
 const ul = document.querySelector('.todos-page__tasks-list');
 
-let tasks = [];
-
+export let tasks = [];
 ul.addEventListener('click', deleteTask);
 
 function deleteTask(e) {
