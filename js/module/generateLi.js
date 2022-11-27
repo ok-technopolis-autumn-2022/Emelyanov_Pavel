@@ -5,8 +5,7 @@ export const tasks = [];
 ul.addEventListener('click', commonTasks);
 
 function commonTasks(e) {
-    let currentTarget = e.target;
-    
+    let currentTarget = e.target;    
     if (currentTarget.className === 'item-in-list__delete_btn') {
         let li = currentTarget.closest('li');
         if (!li) {

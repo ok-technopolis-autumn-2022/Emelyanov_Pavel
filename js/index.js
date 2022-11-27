@@ -63,8 +63,6 @@ function showTasks(e) {
 
 groupOfFilters.addEventListener('click', showTasks);
 
-
-
 const deleteCompleted = () => {
     for(let i = 0; i < tasks.length; i++) {
         const currentLi = ul.querySelector(`li[id="${tasks[i].id}"]`);
