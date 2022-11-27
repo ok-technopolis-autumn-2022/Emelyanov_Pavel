@@ -1,3 +1,24 @@
+const ul = document.querySelector('.todos-page__tasks-list');
+
+let tasks = [];
+
+ul.addEventListener('click', deleteTask);
+
+function deleteTask(e) {
+    let deleteButton = e.target;
+    if (deleteButton.className !== 'item-in-list__delete_btn') {
+        return;
+    }
+    let li = deleteButton.closest('li');
+    if (!li) {
+        return;
+    }
+    const requiredIndexPredicate = el => el.id === Number(li.id);
+    const requiredIndex = tasks.findIndex(requiredIndexPredicate);
+    tasks.splice(requiredIndex, 1);
+    li.remove();
+  }
+
 /**
  * @param {id: string | number, desc: string} task 
  * @returns {string}
@@ -31,13 +52,6 @@
     deleteBtn.className = 'item-in-list__delete_btn';
     deleteBtn.role = 'button';
     deleteBtn.ariaLabel = 'Delete this task';
-
-    const deleteTask = () => {
-        deleteBtn.removeEventListener('click', deleteTask);
-        itemInList.remove();
-    };
-
-    deleteBtn.addEventListener('click', deleteTask);
 
     const editDiv  = document.createElement('div');
     editDiv.className = 'item-in-list__edit';

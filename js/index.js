@@ -57,14 +57,6 @@ const selectAllTask = () => {
 
 createNewForm.addEventListener('submit', addTask);
 selectAllButton.addEventListener('click', selectAllTask);
-allDeleteButtons.forEach((btn) => {
-    const deleteTask = () => {
-        btn.removeEventListener('click', deleteTask);
-        const itemToRemove = document.querySelector(`[id='${btn.id}']`);
-        itemToRemove.remove();
-    };
-    btn.addEventListener('click', deleteTask);
-})
 
 function showTasks(filterButton) {
     switch(filterButton.value) {
