@@ -1,21 +1,26 @@
 const ul = document.querySelector('.todos-page__tasks-list');
+export const groupOfFilters = document.querySelector('.footer__amount-size');
+export const tasks = [];
 
-export let tasks = [];
-ul.addEventListener('click', deleteTask);
+ul.addEventListener('click', commonTasks);
 
-function deleteTask(e) {
-    let deleteButton = e.target;
-    if (deleteButton.className !== 'item-in-list__delete_btn') {
-        return;
+function commonTasks(e) {
+    let currentTarget = e.target;
+    
+    if (currentTarget.className === 'item-in-list__delete_btn') {
+        let li = currentTarget.closest('li');
+        if (!li) {
+            return;
+        }
+        const requiredIndexPredicate = el => el.id === Number(li.id);
+        const requiredIndex = tasks.findIndex(requiredIndexPredicate);
+        tasks.splice(requiredIndex, 1);
+        li.remove();
     }
-    let li = deleteButton.closest('li');
-    if (!li) {
-        return;
+    else if (currentTarget.className === 'item-in-list__checkbox') {
+        groupOfFilters.querySelector('input[name="switcher"]:checked').click();
     }
-    const requiredIndexPredicate = el => el.id === Number(li.id);
-    const requiredIndex = tasks.findIndex(requiredIndexPredicate);
-    tasks.splice(requiredIndex, 1);
-    li.remove();
+
   }
 
 /**
