@@ -8,6 +8,7 @@ const selectAllButton = document.querySelector('.main-controls__select-all-butto
 const allDeleteButtons = document.querySelectorAll('.item-in-list__delete_btn');
 let itemsInUl = document.querySelectorAll('.tasks-list__item-in-list');
 const amountOfTasksRadioButtons = document.querySelectorAll('.footer__radio-button');
+const groupOfFilters = document.querySelector('.footer__amount-size');
 
 const STATE = {ALL: 'All', ACTIVE: 'Active', COMPLETED: 'Completed' };
 
@@ -59,44 +60,26 @@ const selectAllTask = () => {
 createNewForm.addEventListener('submit', addTask);
 selectAllButton.addEventListener('click', selectAllTask);
 
-function showTasks(filterButton) {
-    switch(filterButton.value) {
-        case STATE.COMPLETED:
-            const showCompleted = () => itemsInUl.forEach(li => {
-                const inputOfCurrentLi = li.querySelector('.item-in-list__checkbox');
-                if (!inputOfCurrentLi.checked) {
-                    hide(li);
-                }
-                else {
-                    show(li);
-                }
-            });
-            filterButton.addEventListener('click', showCompleted);
-            break;      
-        case STATE.ACTIVE:
-            const showActive = () => itemsInUl.forEach(li => {
-                const inputOfCurrentLi = li.querySelector('.item-in-list__checkbox');
-                if (inputOfCurrentLi.checked) {
-                    hide(li);
-                }
-                else {
-                    show(li);
-                }
-            });
-            filterButton.addEventListener('click', showActive);
-            break;      
-        default:
-            const showAll = () => itemsInUl.forEach(li => {
-                show(li);
-            });
-            filterButton.addEventListener('click', showAll);
-            break;
-      }
+function showTasks(e) {
+    const radioButton = e.target;
+    if (radioButton.className !== 'footer__radio-button') {
+        return;
+    }
+    tasks.forEach(task => {
+        const li = ul.querySelector(`li[id="${task.id}"]`);
+        const inputOfCurrentLi = li.querySelector('.item-in-list__checkbox');
+        const currentValue = radioButton.value;
+        const isChecked = inputOfCurrentLi.checked;
+        if (currentValue === STATE.ALL || (currentValue === STATE.ACTIVE && !isChecked)
+            || (currentValue === STATE.COMPLETED && isChecked)) {
+            show(li);
+        } else {
+            hide(li);
+        }
+    });
 }
 
-amountOfTasksRadioButtons.forEach((item) => {    
-    showTasks(item)
-})
+groupOfFilters.addEventListener('click', showTasks);
 
 let allCheckboxes = document.querySelectorAll('.item-in-list__checkbox');
 allCheckboxes.forEach((checkbox) => {
