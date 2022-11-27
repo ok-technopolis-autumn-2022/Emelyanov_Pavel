@@ -1,11 +1,12 @@
 export function hide(element) {
-    element.style.display = "none";
+    element.classList.add('hide-task');
+    
 }
 
 export function show(element) {
-    element.style.display = '';
+    element.classList.remove('hide-task');
 }
 
 export function isShown(element) {
-    return element.style.display === '';
+    return element.classList.contains('hide-task');
 }
