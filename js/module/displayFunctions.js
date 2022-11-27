@@ -2,7 +2,6 @@ const labelWithCounter = document.querySelector('.footer__items-counter');
 
 export function hide(element) {
     element.classList.add('hide-task');
-    
 }
 
 export function show(element) {
