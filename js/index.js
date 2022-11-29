@@ -52,7 +52,10 @@ selectAllButton.addEventListener('click', selectAllTask);
 function showTasks(e) {
     const element = e.target;
     const classesWithAccess = ['footer__radio-button', 'main-controls__select-all-button', 'main-controls__create-new', 'item-in-list__checkbox'];
-    if (!classesWithAccess.includes(element.className)) {
+    const haveAccess = () => {
+        return classesWithAccess.some(name => element.classList.contains(name));
+    }
+    if (!haveAccess()) {
         return;
     }
     tasks.forEach(task => {
