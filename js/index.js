@@ -19,17 +19,17 @@ function addTask(e) {
     tasks.push(task);
     ul.appendChild(createLi(task));
     this.reset();
-    getCheckedFilter().click();
+    showTasks(e);
     updateText();
 }
 
 createNewForm.addEventListener('submit', addTask);
 
-const selectAllTask = () => {
+const selectAllTask = (e) => {
     var shouldCheckboxesBeChecked = false;
     tasks.forEach(task => {
         const currentLi = ul.querySelector(`li[id="${task.id}"]`);
-        if (isShown(currentLi)){
+        if (isShown(currentLi)) {
             const inputsWithMark = currentLi.querySelector('.item-in-list__checkbox');
             if (!inputsWithMark.checked) {
                 shouldCheckboxesBeChecked = true;
@@ -38,26 +38,27 @@ const selectAllTask = () => {
     });
     tasks.forEach(task => {
         const currentLi = ul.querySelector(`li[id="${task.id}"]`);
-        if (isShown(currentLi)){
+        if (isShown(currentLi)) {
             const inputsWithMark = currentLi.querySelector('.item-in-list__checkbox');
             inputsWithMark.checked = shouldCheckboxesBeChecked;
         }   
     });
-    getCheckedFilter().click();
+    showTasks(e);
     updateText();
 }
 
 selectAllButton.addEventListener('click', selectAllTask);
 
 function showTasks(e) {
-    const radioButton = e.target;
-    if (radioButton.className !== 'footer__radio-button') {
+    const element = e.target;
+    const classesWithAccess = ['footer__radio-button', 'main-controls__select-all-button', 'main-controls__create-new', 'item-in-list__checkbox'];
+    if (!classesWithAccess.includes(element.className)) {
         return;
     }
     tasks.forEach(task => {
         const li = ul.querySelector(`li[id="${task.id}"]`);
         const inputOfCurrentLi = li.querySelector('.item-in-list__checkbox');
-        const currentValue = radioButton.value;
+        const currentValue = getCheckedFilter().value;
         const isChecked = inputOfCurrentLi.checked;
         if (currentValue === STATE.ALL || (currentValue === STATE.ACTIVE && !isChecked) || (currentValue === STATE.COMPLETED && isChecked)) {
             show(li);
@@ -83,3 +84,22 @@ const deleteCompleted = () => {
 }
 
 footerBtnClear.addEventListener('click', deleteCompleted);
+
+ul.addEventListener('click', commonTasksForUl);
+
+function commonTasksForUl(e) {
+    const currentTarget = e.target;
+    if (currentTarget.classList.contains('item-in-list__delete_btn')) {
+        const li = currentTarget.closest('li');
+        if (!li) {
+            return;
+        }
+        const requiredIndexPredicate = el => el.id === Number(li.id);
+        const requiredIndex = tasks.findIndex(requiredIndexPredicate);
+        tasks.splice(requiredIndex, 1);
+        li.remove();
+    } else if (currentTarget.classList.contains('item-in-list__checkbox')) {
+        showTasks(e);
+    }
+    updateText();
+}

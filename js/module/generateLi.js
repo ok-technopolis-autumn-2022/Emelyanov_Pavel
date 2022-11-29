@@ -4,8 +4,6 @@ const ul = document.querySelector('.todos-page__tasks-list');
 export const groupOfFilters = document.querySelector('.footer__amount-size');
 export const tasks = [];
 
-ul.addEventListener('click', commonTasksForUl);
-
 export function getCheckedFilter() {
     return groupOfFilters.querySelector('input[name="switcher"]:checked')
 }
@@ -20,23 +18,6 @@ export function updateText() {
         }
     });
     changeItemsLeft(counter);
-}
-
-function commonTasksForUl(e) {
-    const currentTarget = e.target;    
-    if (currentTarget.className === 'item-in-list__delete_btn') {
-        const li = currentTarget.closest('li');
-        if (!li) {
-            return;
-        }
-        const requiredIndexPredicate = el => el.id === Number(li.id);
-        const requiredIndex = tasks.findIndex(requiredIndexPredicate);
-        tasks.splice(requiredIndex, 1);
-        li.remove();
-    } else if (currentTarget.className === 'item-in-list__checkbox') {
-        getCheckedFilter().click();
-    }
-    updateText();
 }
 
 /**
