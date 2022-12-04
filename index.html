@@ -6,6 +6,7 @@
             todos
         </title>
         <link href="styles/styles.scss" rel="stylesheet">
+        <script src="js/index.js" defer></script>
     </head>
     <body>
         <main class="todos-page" role="main" aria-label="Page with tasks to do">
@@ -18,83 +19,20 @@
             <article class="todos-page__article" role="article" aria-label="List with tasks">
                 <header class="main-controls__main-controls main-controls">
                     <div class="main-controls__select-all">
-                        <button class="main-controls__select-all-button" role="button" aria-label="Select all tasks" alt="Select All">
-                            <img src="images\SelectAll.svg" alt="Изображение со стрелкой вниз">
-                        </button>
+                        <button class="main-controls__select-all-button" role="button" aria-label="Select all tasks" alt="Select All"></button>
                     </div>
-                    <div class="main-controls__create-new">
-                        <input type="text" placeholder="What needs to be done?" class="main-controls__new-task-input" autofocus="autofocus">
-                    </div>                   
+                    <form action="#" method="post" class="main-controls__create-new">
+                        <input id="description" type="text" placeholder="What needs to be done?" class="main-controls__new-task-input" autofocus="autofocus">
+                    </form>                   
                 </header>
 
                 <section class="todos-page__tasks">
-                    <ul class="todos-page__tasks-list tasks-list">
-                        <li class="tasks-list__item-in-list item-in-list">
-                            <div class="item-in-list__task-item">
-                                <label class="item-in-list__custom-checkbox">
-                                    <input class="item-in-list__checkbox" type="checkbox" role="checkbox" aria-label="Item in your tasks">
-                                    <span class="item-in-list__checkbox-replica"></span>
-                                </label>
-                                <span class="item-in-list__main-list-text">HTML</span>
-                                <button class="item-in-list__delete_btn" role="button" aria-label="Delete this task">
-                                    <img src="images/delete.svg" alt="Изображение удаления">
-                                </button>
-                            </div>
-                            <div class="item-in-list__edit">
-                                <input class="task-item__input" type="text" value="HTML" aria-label="Edit task: HTML"/>
-                            </div>
-                        </li>
-                        <li class="tasks-list__item-in-list item-in-list">
-                            <div class="item-in-list__task-item">
-                                <label class="item-in-list__custom-checkbox">
-                                    <input class="item-in-list__checkbox" type="checkbox" role="checkbox" aria-label="Item in your tasks">
-                                    <span class="item-in-list__checkbox-replica"></span>
-                                </label>
-                                <span class="item-in-list__main-list-text">CSS</span>
-                                <button class="item-in-list__delete_btn" role="button" aria-label="Delete this task">
-                                    <img src="images/delete.svg" alt="Изображение удаления">
-                                </button>
-                            </div>
-                            <div class="item-in-list__edit">
-                                <input type="text" class="task-item__input" value="CSS" aria-label="Edit task: CSS"/>
-                            </div>
-                        </li>
-                        <li class="tasks-list__item-in-list item-in-list">
-                            <div class="item-in-list__task-item">
-                                <label class="item-in-list__custom-checkbox">
-                                    <input class="item-in-list__checkbox" type="checkbox" role="checkbox" aria-label="Item in your tasks">
-                                    <span class="item-in-list__checkbox-replica"></span>
-                                </label>
-                                <span class="item-in-list__main-list-text">JS</span>
-                                <button class="item-in-list__delete_btn" role="button" aria-label="Delete this task">
-                                    <img src="images/delete.svg" alt="Изображение удаления">
-                                </button>
-                            </div>
-                            <div class="item-in-list__edit">
-                                <input type="text" class="task-item__input" value="JS" aria-label="Edit task: JS"/>
-                            </div>
-                        </li>
-                        <li class="tasks-list__item-in-list item-in-list">
-                            <div class="item-in-list__task-item">
-                                <label class="item-in-list__custom-checkbox">
-                                    <input class="item-in-list__checkbox" type="checkbox" role="checkbox" aria-label="Item in your tasks">
-                                    <span class="item-in-list__checkbox-replica"></span>
-                                </label>
-                                <span class="item-in-list__main-list-text">JS tools</span>
-                                <button class="item-in-list__delete_btn" role="button" aria-label="Delete this task">
-                                    <img src="images/delete.svg" alt="Изображение удаления">
-                                </button>
-                            </div>
-                            <div class="item-in-list__edit" hidden>
-                                <input type="text" class="task-item__input" value="JS tools" aria-label="Edit task: JS tools"/>
-                            </div>
-                        </li>
-                    </ul>
+                    <ul class="todos-page__tasks-list tasks-list"></ul>
                 </section>
 
                 <footer class="todos-page__footer footer">
                     <div class="footer__item-in-footer">
-                        <span class="footer__items-counter" role="note" aria-label="Task count counter">3 items left</span> 
+                        <span class="footer__items-counter" role="note" aria-label="Task count counter">0 items left</span> 
                     </div>
                     <div class="footer__item-in-footer">
                         <div class="footer__amount-size">
