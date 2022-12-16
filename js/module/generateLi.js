@@ -1,27 +1,11 @@
-import {changeItemsLeft, isShown} from "./displayFunctions.js"
-
-const ul = document.querySelector('.todos-page__tasks-list');
 export const groupOfFilters = document.querySelector('.footer__amount-size');
-export const tasks = [];
 
 export function getCheckedFilter() {
     return groupOfFilters.querySelector('input[name="switcher"]:checked')
 }
 
-export function updateText() {
-    let counter = 0;
-    tasks.forEach(task => {
-        const currentLi = ul.querySelector(`li[id="${task.id}"]`);
-        const currentCheckbox = currentLi.querySelector('.item-in-list__checkbox');
-        if (isShown(currentLi) && !currentCheckbox.checked) {
-            counter++;
-        }
-    });
-    changeItemsLeft(counter);
-}
-
 /**
- * @param {id: string | number, desc: string} task 
+ * @param {id: string | number, desc: string, completed: boolean} task 
  * @returns {string}
  */
  export function createLi(task) {
@@ -38,6 +22,7 @@ export function updateText() {
     inputWithMark.className = 'item-in-list__checkbox';
     inputWithMark.ariaLabel = 'Item in your tasks';
     inputWithMark.role = 'checkbox';
+    inputWithMark.checked = task.completed;
 
     const mainListText  = document.createElement('span');
     mainListText.className = 'item-in-list__main-list-text';
