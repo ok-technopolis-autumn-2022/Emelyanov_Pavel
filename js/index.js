@@ -25,8 +25,7 @@ const selectAllTask = () => {
     var shouldCheckboxesBeChecked = false;
     const tasks = store.getTasks();
     tasks.forEach((task, i) => {
-        const currentLi = getLiById(task.id);
-        if (currentLi) {
+        if (getLiById(task.id)) {
             selectedTasksIndex.push(i);
             if (!task.completed) {
                 shouldCheckboxesBeChecked = true;
@@ -42,8 +41,7 @@ const deleteCompleted = () => {
     var completedTasksIndexes = [];
     const tasks = store.getTasks();
     tasks.forEach((task, i) => {
-        const currentLi = getLiById(task.id);
-        if (currentLi && task.completed) {
+        if (getLiById(task.id) && task.completed) {
             completedTasksIndexes.push(i);  
         }
     })
