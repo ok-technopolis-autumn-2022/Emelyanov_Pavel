@@ -1,6 +1,7 @@
 export function createTask(desc) {
     return {
         id: Date.now(),
-        desc: desc
+        desc: desc,
+        completed: false
     }
 }
