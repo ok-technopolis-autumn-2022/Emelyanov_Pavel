@@ -1,4 +1,4 @@
-import { OBSERVABLE_ACTIONS } from "./actions"
+import { OBSERVABLE_ACTIONS } from "./actions.js";
 
 export class Store {
     #observers = [];
@@ -28,7 +28,7 @@ export class Store {
     }
 
     deleteCompleted(completedTasksIndexes) {
-        let amountOfDeletion = 0;
+        var amountOfDeletion = 0;
         completedTasksIndexes.forEach(index => {
             this.#tasks.splice(index - amountOfDeletion, 1);
             amountOfDeletion++;
@@ -38,11 +38,11 @@ export class Store {
 
     selectAll(selectedTasksIndexes, value) {
         selectedTasksIndexes.forEach( index => this.#tasks[index].completed = value);
-        this.notify(OBSERVABLE_ACTIONS.FILTER_TASKS);
+        this.notify(OBSERVABLE_ACTIONS.CHANGE_TASKS);
     }
 
     changeTaskState(index) {
         this.#tasks[index].completed = !this.#tasks[index].completed;
-        this.notify(OBSERVABLE_ACTIONS.FILTER_TASKS);
+        this.notify(OBSERVABLE_ACTIONS.CHANGE_TASKS);
     }
 }

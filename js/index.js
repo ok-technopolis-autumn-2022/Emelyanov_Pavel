@@ -1,6 +1,6 @@
 import { createTask } from "./module/task.js";
 import { createLi } from "./module/generateLi.js";
-import { ul, groupOfFilters, getCheckedFilter, getLiById} from "./module/extraFunctions.js";
+import { ul, groupOfFilters, getCheckedFilter, getLiById } from "./module/extraFunctions.js";
 import { Store } from "./patternObserver/Store.js";
 import { changeItemsLeft } from "./module/updatingDataFunc.js";
 import { STATE } from "./module/states";
@@ -41,13 +41,12 @@ selectAllButton.addEventListener('click', selectAllTask);
 const deleteCompleted = () => {
     var completedTasksIndexes = [];
     const tasks = store.getTasks();
-    for(let i = 0; i < tasks.length; i++) {
-        const currentId = tasks[i].id;
-        const currentLi = getLiById(currentId);
-        if (currentLi && tasks[i].completed) {
+    tasks.forEach((task, i) => {
+        const currentLi = getLiById(task.id);
+        if (currentLi && task.completed) {
             completedTasksIndexes.push(i);  
         }
-    }
+    })
     store.deleteCompleted(completedTasksIndexes);
 }
 
@@ -61,14 +60,9 @@ function commonTasksForUl(e) {
     if (!li) {
         return;
     }
-    var index = 0;
     const requiredId = Number(li.id);
     const tasks = store.getTasks();
-    tasks.forEach((el, i) => {
-        if (el.id === requiredId) {
-            index = i;
-        }
-    });
+    var index = tasks.map(el => el.id).findIndex(id => id === requiredId);
     if (currentTarget.classList.contains('item-in-list__delete_btn')) {
         store.removeTask(index);
     } else if (currentTarget.classList.contains('item-in-list__checkbox')) {
@@ -93,13 +87,7 @@ function render() {
 
 function updateText() {
     const tasks = store.getTasks();
-    var counter = 0;
-    tasks.forEach(task => {
-        const currentLi = getLiById(task.id);
-        if (!task.completed) {
-            counter++;
-        }
-    });
+    var counter = tasks.filter(task => getLiById(task.id) && !task.completed).length;
     changeItemsLeft(counter);
 }
 
@@ -107,7 +95,7 @@ store.subscribe((event) => {
     switch (event) {
         case OBSERVABLE_ACTIONS.ADD_TASK:
         case OBSERVABLE_ACTIONS.REMOVE_TASK:
-        case OBSERVABLE_ACTIONS.FILTER_TASKS:
+        case OBSERVABLE_ACTIONS.CHANGE_TASKS:
             render();
     }
 });
