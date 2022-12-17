@@ -27,27 +27,21 @@ export class Store {
         this.notify(OBSERVABLE_ACTIONS.REMOVE_TASK);
     }
 
-    deleteCompleted(completedTasksIndex) {
+    deleteCompleted(completedTasksIndexes) {
         let amountOfDeletion = 0;
-        completedTasksIndex.forEach(index => {
+        completedTasksIndexes.forEach(index => {
             this.#tasks.splice(index - amountOfDeletion, 1);
             amountOfDeletion++;
         });
         this.notify(OBSERVABLE_ACTIONS.REMOVE_TASK);
     }
 
-    selectAll(selectedTasksIndex, value) {
-        if (selectedTasksIndex.length === 0) {
-            return;
-        }
-        selectedTasksIndex.forEach( index => {
-            this.#tasks[index].completed = value;
-        });
-        this.#tasks.forEach(task => task.isCompleted = true);
+    selectAll(selectedTasksIndexes, value) {
+        selectedTasksIndexes.forEach( index => this.#tasks[index].completed = value);
         this.notify(OBSERVABLE_ACTIONS.FILTER_TASKS);
     }
 
-    changeTaskStatus(index) {
+    changeTaskState(index) {
         this.#tasks[index].completed = !this.#tasks[index].completed;
         this.notify(OBSERVABLE_ACTIONS.FILTER_TASKS);
     }

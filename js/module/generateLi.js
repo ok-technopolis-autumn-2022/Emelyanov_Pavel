@@ -1,9 +1,3 @@
-export const groupOfFilters = document.querySelector('.footer__amount-size');
-
-export function getCheckedFilter() {
-    return groupOfFilters.querySelector('input[name="switcher"]:checked')
-}
-
 /**
  * @param {id: string | number, desc: string, completed: boolean} task 
  * @returns {string}
