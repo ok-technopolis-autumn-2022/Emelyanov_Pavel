@@ -10,7 +10,7 @@ export class Store {
     }
 
     notify(code) {
-        this.#observers.forEach(observer => observer(code))
+        this.#observers.forEach(observer => observer(code));
     }
 
     addNewTask(task) {
